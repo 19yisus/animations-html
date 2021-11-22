@@ -28,6 +28,9 @@ new Vue({
     },
     async mounted(){
         await this.consulta();
-        console.log(this.movie)
+        setTimeout( () => {
+            document.getElementById("preolader").classList.toggle("hidden");
+            document.getElementById("body").classList.toggle("hidden");
+        }, 4000);
     }
 });
