@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./vue.min.js" defer></script>
+    <script src="./index.js" defer></script>
+    <title>Movies HomePage | Jesus Morales</title>
+</head>
+<body>
+    <div id="appVue" class="bg-gray-400 w-screen h-screen fixed">
+        <header class="bg-gray-600 w-10/12 flex flex-row mx-auto text-white items-center justify-between p-2 m-2 mt-12 rounded-lg">
+            <h3 class="font-semibold"><span class="text-blue-500">The</span> Movie <span class="text-red-500 font-bold">db</span></h3>
+            <ul class="flex flex-row space-x-3 mr-2">
+                <li class="hover:text-red-500 hover:font-bold transform hover:scale-125 transition duration-300"><a href="#inicio">Inicio</a></li>
+                <li class="hover:text-red-500 hover:font-bold transform hover:scale-125 transition duration-300"><a href="#discover">Descubrir</a></li>
+            </ul>
+        </header>
+
+        <section class="bg-gray-800 mt-32 w-screen h-auto">
+            <div class="w-10/12 p-4 mx-auto my-5 grid grid-cols-4 gap-3 place-content-center">
+                <div v-for="peli in movies" :key="peli.id" class="bg-gray-500 rounded-md relative ring-2 ring-gray-900 group hover:border-red-500 transition hover:duration-300">                    
+                    <img :src="peli.poster_path" alt="Poster" class="bg-cover bg-fixed bg-center rounded-md">
+                    <div class="absolute bottom-0 w-full px-2 bg-gray-800 opacity-50 text-right group-hover:opacity-0">
+                        <strong class="text-yellow-500"><i class='bx bxs-star'></i>{{peli.vote_average}}</strong>
+                    </div>
+                    <div class="absolute flex flex-col group-hover:opacity-100 opacity-0 h-full w-full top-0 rounded-md bg-transparent bg-opacity-50 bg-gray-300 transition duration-300 p-1 divide-y-2 divide-red-500">
+                        <div class="flex-row text-center font-semibold">
+                            <small></i>{{peli.title}}</small>
+                        </div>
+                        <div class="flex-row text-center">
+                            <small>{{peli.overview}}</small>
+                        </div>
+                        <div class="flex-row text-center">
+                            <small>Lanzamiento: {{peli.release_date}}</small>
+                            <small>Votos: {{peli.vote_average}}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+</body>
+</html>
